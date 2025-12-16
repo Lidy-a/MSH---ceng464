@@ -1,6 +1,7 @@
-#include <iostream>
+#include "core/MSHSystem.h"
 
 int main() {
-    std::cout << "MSH running ✅" << std::endl;
+    MSHSystem system;
+    system.run();
     return 0;
 }
