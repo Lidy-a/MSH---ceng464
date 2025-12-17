@@ -1,16 +1,26 @@
-#include <iostream>
 #include "core/MSHSystem.h"
-#include "logging/Logger.h"
+#include <iostream>
 
+// controller + services (teammate subsystem)
+#include "menu/controller.hpp"
+#include "menu/dummy_services.hpp"
+#include "menu/logger_adapter.hpp"
 
 void MSHSystem::run() {
-    std::cout << "Welcome to My Sweet Home (MSH) ✅" << std::endl;
-    std::cout << "System Core started..." << std::endl;
+  std::cout << "Welcome to My Sweet Home (MSH) ✅\n";
+  std::cout << "System Core started...\n";
 
-    // Placeholder: later this will show the real menu
-    std::cout << "[Menu placeholder] 1) Status 2) Manual 3) Shutdown" << std::endl;
+  // Dummy implementations (temporary, until real subsystems are merged)
+  DummyDeviceService devices;
+  DummyModeService modes;
+  DummySecurityService security;
+  DummySnapshotService snapshots;
 
-    std::cout << "Exiting MSH (placeholder run)." << std::endl;
-    Logger::getInstance()->log("System started (test)");
+  // Adapter to your real logger singleton
+  LoggerAdapter log;
 
+  Controller controller(devices, modes, security, snapshots, log);
+  controller.run();
+
+  std::cout << "Exiting MSH.\n";
 }
