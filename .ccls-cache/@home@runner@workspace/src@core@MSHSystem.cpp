@@ -6,14 +6,14 @@
 #include "menu/controller.hpp"
 #include "menu/dummy_services.hpp"
 #include "menu/logger_adapter.hpp"
+#include "modes/ModeService.hpp"
 
 void MSHSystem::run() {
   std::cout << "Welcome to My Sweet Home (MSH) ✅\n";
   std::cout << "System Core started...\n";
 
-  // Dummy implementations (temporary, until real subsystems are merged)
   DeviceService devices;
-  DummyModeService modes;
+  ModeService modes;
   DummySecurityService security;
   DummySnapshotService snapshots;
 
