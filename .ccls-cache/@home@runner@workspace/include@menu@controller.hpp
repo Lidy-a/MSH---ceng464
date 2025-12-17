@@ -8,7 +8,7 @@
 class Controller {
 public:
   Controller(IDeviceService &d, IModeService &m, ISecurityService &s,
-             ISnapshotService &snap, ILogger &log);
+             ISnapshotService &snap, IStateService &st, ILogger &log);
 
   void run();
 
@@ -17,12 +17,14 @@ private:
   IModeService &modes;
   ISecurityService &security;
   ISnapshotService &snapshots;
+  IStateService &states;
   ILogger &logger;
 
   void devicesMenu();
   void modesMenu();
   void securityMenu();
   void snapshotsMenu();
+  void statesMenu();
 
   // Device commands
   CommandPtr makeListDevicesCmd();
