@@ -7,6 +7,7 @@
 #include "menu/dummy_services.hpp"
 #include "menu/logger_adapter.hpp"
 #include "modes/ModeService.hpp"
+#include "security/SecurityService.hpp"
 #include "states/StateService.hpp"
 
 void MSHSystem::run() {
@@ -16,7 +17,7 @@ void MSHSystem::run() {
   DeviceService devices;
   ModeService modes;
   StateService states;
-  DummySecurityService security;
+  SecurityService security;
   DummySnapshotService snapshots;
 
   // Adapter to your real logger singleton
